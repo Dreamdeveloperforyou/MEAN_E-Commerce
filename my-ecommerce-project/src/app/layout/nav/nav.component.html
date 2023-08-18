@@ -1,0 +1,83 @@
+<div class="nav-bar">
+  <mat-toolbar color="primary" *ngIf="currentUserRole == null">
+    <mat-toolbar-row>
+      <span class="mat-button">
+        <button routerLink="/user/displayCategory" mat-icon-button class="mat-button" aria-label="Example icon-button with menu icon">
+          <mat-icon>home</mat-icon>
+        </button>
+        <a routerLink="/user/wishList"  class="mat-button" aria-label="Example icon-button with menu icon">
+          <b> <i> Product's Minia </i> </b>&nbsp;
+        </a>
+      </span>
+
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="mat-button favorite-icon" aria-label="Example icon-button with heart icon"
+        (click)="signUp()">
+        <mat-icon>group</mat-icon>
+      </button>
+      <button mat-icon-button class="mat-button" aria-label="Example icon-button with share icon" (click)="login()">
+        <mat-icon>login</mat-icon>
+      </button>
+      <button mat-icon-button class="mat-button" aria-label="Example icon-button with share icon" (click)="openDialog()" class="profile()">
+        <mat-icon>account_circle</mat-icon> 
+      </button>
+      <button mat-icon-button class="mat-button" aria-label="Example icon-button with share icon" routerLink="/user/addToCart">
+        <mat-icon>shopping_cart</mat-icon> 
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<div class="nav-bar">
+  <mat-toolbar color="primary" *ngIf="currentUserRole == 1">
+    <mat-toolbar-row>
+      <span class="mat-button">
+        <button routerLink="/user/displayCategory" mat-icon-button class="mat-button" aria-label="Example icon-button with menu icon">
+          <mat-icon>home</mat-icon>
+        </button>
+        <a routerLink="/user/wishList"  class="mat-button" aria-label="Example icon-button with menu icon">
+          <b> <i> Product's Minia </i> </b>&nbsp;
+        </a>     
+      </span>
+
+      <span class="example-spacer"></span>
+      <button (click)="b()" class="cart" mat-icon-button ><mat-icon>shopping_cart</mat-icon>   </button>   
+
+      <button mat-icon-button class="mat-button" aria-label="Example icon-button with share icon" (click)="logOut()">
+        <mat-icon>logout</mat-icon>
+      </button>
+      <button mat-icon-button class="mat-button" aria-label="Example icon-button with share icon" (click)="openDialog()" class="profile()">
+        <mat-icon>account_circle</mat-icon> 
+      </button>
+     
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<div class="nav-bar">
+  <mat-toolbar color="primary" *ngIf="currentUserRole == 0">
+    <mat-toolbar-row>
+      <span class="mat-button">
+        &nbsp;
+        <button routerLink="/admin/admin-dashboard" mat-icon-button class="mat-button" aria-label="Example icon-button with menu icon">
+          <mat-icon>home</mat-icon>
+        </button>
+        <a routerLink="/user/wishList"  class="mat-button" aria-label="Example icon-button with menu icon">
+          <b> <i> Product's Minia </i> </b>&nbsp;
+        </a>
+      </span>
+
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="mat-button" aria-label="Example icon-button with share icon" (click)="logOut()">
+        <mat-icon>logout</mat-icon>
+      </button>
+      <button mat-icon-button class="mat-button" aria-label="Example icon-button with share icon" (click)="openDialog()" class="profile()">
+        <mat-icon>account_circle</mat-icon> 
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<app-root></app-root>
+
+<!-- <app-footer></app-footer>  -->

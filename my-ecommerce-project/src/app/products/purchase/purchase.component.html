@@ -1,0 +1,97 @@
+<div class="container">
+    <ng-container *ngIf="productData.length > 0;">
+        <div *ngFor="let product of productData" class="category_container">
+            <div class="category-image">
+                <img src="http://localhost:8055/uploads/{{product.variant_image[0]}}" alt="product image"
+                     />
+            </div>
+            <div class="category_name">
+                <p><b>Name</b>&nbsp;&nbsp;<span>{{product.name}}</span></p>
+                <p><b>Price</b>&nbsp;&nbsp;<span>{{product.price}}</span></p>
+                <p> <b>Quantity</b>&nbsp;&nbsp;{{product.qty}}
+                <p><b>Colour</b>&nbsp;&nbsp;
+                    <img src="http://localhost:8055/uploads/{{product.colour_image}}" alt="product image" height="20px"
+                        width="30px" />
+                </p>
+            </div>
+        </div>
+        <ng-template #elseBlock>
+            <div class="container">
+                <h1>Products not found!!!</h1>
+            </div>
+        </ng-template>
+    </ng-container>
+</div>
+
+
+<div style="margin-top: 50px;">
+    <div class="container">
+        <form (ngSubmit)="applyPromocode()">
+            <input type="text" name="promocode" placeholder="Enter promocode" [(ngModel)]="promocode" />&nbsp;
+            <button type="submit" mat-button class="editBtn">Apply Promocode</button>
+        </form>
+    </div>
+</div>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Final Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Sub-total</td>
+                <td>{{subTotal | currency: 'INR'}}</td>
+            </tr>
+            <tr>
+                <td>Tax</td>
+                <td>{{taxes | currency: 'INR'}}</td>
+            </tr>
+            <ng-container *ngIf="discount;else elseBlock">
+                <tr>
+                    <td>Discount</td>
+                    <td>{{discount | currency: 'INR'}}</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>{{total | currency: 'INR'}}</td>
+                </tr>
+            </ng-container>
+            <ng-template #elseBlock>
+                <tr>
+                    <td>Total</td>
+                    <td>{{total | currency: 'INR'}}</td>
+                </tr>
+            </ng-template>
+        </tbody>
+    </table>
+</div>
+<div class="btn">
+    <button mat-raised-button color="primary" (click)="back()">Back</button>&nbsp;
+</div>
+
+<div class="order">
+    <b>Your Total</b>
+    <p>{{total | currency: 'INR'}}</p>
+    <p>{{productData.price | currency: 'INR'}}</p>
+    <b>Shipping Address</b><br>
+    <b>{{ shippingAddress[0].type}}</b>
+    <p>{{ shippingAddress[0].street | uppercase}} {{ shippingAddress[0].city | uppercase}}
+        {{ shippingAddress[0].state | uppercase}}
+        {{ shippingAddress[0].country |
+        uppercase}}</p>
+    <p> {{ shippingAddress[0].pincode | uppercase}}</p>
+    <b>Phone</b>
+    <p> {{ shippingAddress[0].phone_number }}</p>
+
+    <div>
+        <button mat-button (click)="back()" class="editBtn1">Change Address</button>
+    </div>
+    <div>
+        <button mat-button class="editBtn" (click)="editBtn()">Edit</button>&nbsp;
+        <button mat-button class="buyBtn" (click)="buy()">Buy</button>&nbsp;
+        <button mat-button class="cancelBtn" (click)="home()">cancel</button>
+    </div>
+
+</div>

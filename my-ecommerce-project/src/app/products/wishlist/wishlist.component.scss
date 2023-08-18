@@ -1,0 +1,36 @@
+input {
+    width: 20px;
+    text-align: center;
+    border: 1px solid rgb(197, 185, 185);
+}
+
+.div {
+    display: inline-block;
+    width: 20%;
+    margin: 1%;
+    background-color: antiquewhite;
+}
+.example-card{
+    background-color: rgb(193, 127, 255);
+}
+.b1{
+    background-color: rgb(205, 11, 11);
+}
+.b2{
+    background-color:rgb(193, 172, 223);
+    color: black;
+}
+.buyBtn {
+    background-color:rgb(39, 164, 64);
+    color: black;
+}
+
+.editBtn {
+    background-color:orange;
+    color: black;
+}
+
+.cancelBtn {
+    background-color: rgb(217, 38, 38);
+    color: black;
+}

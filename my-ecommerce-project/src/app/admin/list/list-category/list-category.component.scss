@@ -1,0 +1,82 @@
+.sub-category-form {
+  margin: 0 auto;
+  width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+  background-color: #d6abd681;
+}
+
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: black;
+}
+
+.form-control {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.error {
+  color: rgb(143, 11, 11);
+  font-size: 14px;
+}
+
+.message {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+button{
+  padding: 10px 20px;
+  background-color: #a701b6;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  margin: 1px;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input[type="text"]{
+  width: 200px;
+}
+input[type="number"],
+select,
+textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+input[type="file"] {
+  background-color: #93439b;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+select {
+  margin: 8px;
+  text-align: center;
+    color: #93439b;
+    width: 300px;
+}

@@ -1,0 +1,56 @@
+<p>update-shipping-address works!</p>
+
+    <form class="login-form">
+    <div class="form-group">
+        <label for="country">Country</label>
+        <input [(ngModel)]="address.country" id="country" type="text" name="country" class="form-control">
+        <span *ngIf="address.country === '' || address.country === null || address.country === undefined"
+            class="invalid-feedback">Country is required.</span>
+    </div>
+    <div class="form-group">
+        <label for="state">State</label>
+        <input [(ngModel)]="address.state" id="state" type="text" name="state" class="form-control">
+        <span *ngIf="address.state === '' || address.state === null || address.state === undefined"
+            class="invalid-feedback">State is required.</span>
+    </div>
+    <div class="form-group">
+        <label for="city">City</label>
+        <input [(ngModel)]="address.city" id="city" type="text" name="city" class="form-control">
+        <span *ngIf="address.city === '' || address.city === null || address.city === undefined"
+            class="invalid-feedback">City is required.</span>
+    </div>
+    <div class="form-group">
+        <label for="street">Street</label>
+        <input [(ngModel)]="address.street" id="street" type="text" name="street" class="form-control">
+        <span *ngIf="address.street === '' || address.street === null || address.street === undefined"
+        class="invalid-feedback">Street is required.</span>
+    </div>
+    <div class="form-group">
+        <label for="pincode">Pincode</label>
+        <input [(ngModel)]="address.pincode" id="pincode" type="text" name="pincode" class="form-control">
+        <span *ngIf="address.pincode === '' || address.pincode === null || address.pincode === undefined"
+            class="invalid-feedback">Pincode is required.</span>
+    </div>
+    <div class="form-group">
+        <label for="phone_number">Phone Number</label>
+        <input [(ngModel)]="address.phone_number" id="phone_number" type="text" name="phone_number" class="form-control">
+        <span *ngIf="address.phone_number === '' || address.phone_number === null || address.phone_number === undefined"
+        class="invalid-feedback">Phone number is required.</span>
+    </div>
+    <div class="form-group">
+        <label for="type">Address type</label>
+        <select [(ngModel)]="address.type" id="type" name="type" id="type">
+            <option value="">Choose address type</option>
+            <option value="Home">Home</option>
+            <option value="Office">Office</option>
+            <option value="Other">Other</option>
+        </select>
+        <span *ngIf="address.type === '' || address.type === null || address.type === undefined"
+        class="invalid-feedback">Address type is required.</span>
+    </div>
+    <div class="form-group">
+        <button (click)="updateAddress()" class="btn btn-primary">Update</button>&nbsp;
+        <button (click)="cancel()" class="btn btn-primary">Cancel</button>
+    </div>
+</form>
+ 

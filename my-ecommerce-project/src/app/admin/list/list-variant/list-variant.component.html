@@ -1,0 +1,91 @@
+<div *ngIf="categories.length > 0;">
+    <select (change)="onChangeCategory($event)" class="select">
+        <option value="">Choose category</option>
+        <option *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</option>
+    </select>
+</div>
+
+<div *ngIf="products.length > 0;">
+    <select (change)="onChangeProduct($event)" class="select">
+        <option value="">Choose product</option>
+        <option *ngFor="let product of products" value="{{product._id}}">{{product.name}}</option>
+    </select>
+</div>
+
+<div *ngIf="variants.length > 0;">
+    <select (change)="onChangeVariant($event)" class="select">
+        <option value="">Choose variant</option>
+        <option *ngFor="let variant of variants" value="{{variant._id}}">{{variant.name}}</option>
+    </select>
+</div>
+
+<form (submit)="onSubmit()" class="form-container" *ngIf="showForm == true">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" [(ngModel)]="variantForm.name" name="name" required>
+        <div *ngIf="variantForm.name === '' || variantForm.name === null || variantForm.name === undefined"
+            class="invalid-feedback">Name is required.</div>
+    </div>
+
+    <div *ngIf="products.length > 0;">
+        <label for="name">Product:</label>
+        <select>
+            <option value="">Choose product</option>
+            <option *ngFor="let product of products" value="{{product._id}}">{{product.name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="text" id="price" [(ngModel)]="variantForm.price" name="price" required>
+        <div *ngIf="variantForm.price === '' || variantForm.price === null || variantForm.price === undefined"
+            class="invalid-feedback">Price is required.</div>
+    </div>
+
+    <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        <input type="text" id="quantity" [(ngModel)]="variantForm.quantity" name="quantity" required>
+        <div *ngIf="variantForm.quantity === '' || variantForm.quantity === null || variantForm.quantity === undefined"
+            class="invalid-feedback">Quantity is required.</div>
+    </div>
+
+    <div class="form-group">
+        <label for="colour">Colour:</label>
+        <input type="text" id="colour" [(ngModel)]="variantForm.colour" name="colour" required>
+        <div *ngIf="variantForm.colour === '' || variantForm.colour === null || variantForm.colour === undefined"
+            class="invalid-feedback">Colour is required.</div>
+    </div>
+
+    <div class="form-group">
+        <label for="colour_image">Colour Image:</label>
+        <input type="file" id="colour_image" name="colour_image" (change)="onFileChange($event)" required>
+    </div>
+
+    <div *ngIf="selectedColourImage == undefined;else thisOne">
+        <img src="http://localhost:8055/uploads/{{variantForm.colour_image}}" style="height: 100px; width:100px" />
+    </div>
+    <ng-template #thisOne>
+        <p>Image Selected</p>
+    </ng-template>
+
+
+    <div class="form-group">
+        <label for="variant_image">Variant Image:</label>
+        <input multiple type="file" id="variant_image" name="variant_image" (change)="onVariantFileChange($event)"
+            required>
+    </div>
+
+    <div *ngIf="selectedVariantImage == undefined;else this1">
+        <ng-container *ngFor="let val of variantForm.variant_image">
+            <img src="http://localhost:8055/uploads/{{val}}" style="height: 100px; width:100px" />
+        </ng-container>
+    </div>
+    <ng-template #this1>
+        <p>Image Selected</p>
+    </ng-template>
+
+    <div>
+        <button type="submit" [disabled]="!variantForm.colour">Update</button>
+        <button (click)="hideForm()">Cancel</button>
+    </div>
+</form>

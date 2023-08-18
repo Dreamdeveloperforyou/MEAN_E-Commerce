@@ -1,0 +1,9 @@
+<h2>my-orders works!</h2>
+
+    <h1>My Order</h1>
+<div *ngIf="myOrder">
+    <div *ngFor="let order of myOrder.products">
+        {{order.variant_id}}
+        <p>Price {{order.price | currency:'INR'}}</p>
+    </div>
+</div>

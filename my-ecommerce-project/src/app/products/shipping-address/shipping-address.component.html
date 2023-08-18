@@ -1,0 +1,216 @@
+<div>
+    <h1><u>Shipping Address</u></h1>
+    <mat-card class="mat-card" *ngFor="let address of shippingAddress;"
+        style="display: inline-block; width: 20%; margin: 1%;">
+        <mat-card-content>
+            <input type="radio" name="address" (change)="setDefaultAddress(address)" />
+            <b>{{address.type}}</b>
+            <p>{{address.street | uppercase}} {{address.city | uppercase}} {{address.state | uppercase}}
+                {{address.country |
+                uppercase}}</p>
+            <p> {{address.pincode | uppercase}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button class="btn" (click)="editAddress(address._id)">Edit</button>&nbsp;
+            <button class="btn" (click)="deleteAddress(address._id)">Delete</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+<div>
+    <button (click)="showAddressForm()" class="btn" *ngIf="currentUser">+ Add address</button>
+    <form [formGroup]="addressForm" (ngSubmit)="onSubmit()" class="login-form" *ngIf="showForm">
+        <input type="hidden" formControlName="user" [value]="userId" class="form-control">
+        <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" formControlName="country" id="country" class="form-control">
+            <span
+                *ngIf="addressForm.get('country').invalid && (addressForm.get('country').dirty || addressForm.get('country').touched)"
+                class="error">
+                <span *ngIf="addressForm.get('country').errors.required">
+                    * Country is required.
+                </span>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="state">State</label>
+            <input id="state" type="text" formControlName="state" class="form-control">
+            <span
+                *ngIf="addressForm.get('state').invalid && (addressForm.get('state').dirty || addressForm.get('state').touched)"
+                class="error">
+                <span *ngIf="addressForm.get('state').errors.required">
+                    * State is required.
+                </span>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input id="city" type="text" formControlName="city" class="form-control">
+            <span
+                *ngIf="addressForm.get('city').invalid && (addressForm.get('city').dirty || addressForm.get('city').touched)"
+                class="error">
+                <span *ngIf="addressForm.get('city').errors.required">
+                    * City is required.
+                </span>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="street">Street</label>
+            <input type="text" formControlName="street" id="street" class="form-control">
+            <span
+                *ngIf="addressForm.get('street').invalid && (addressForm.get('street').dirty || addressForm.get('street').touched)"
+                class="error">
+                <span *ngIf="addressForm.get('street').errors.required">
+                    * Street is required.
+                </span>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="pincode">Pincode</label>
+            <input id="pincode" type="text" formControlName="pincode" class="form-control">
+            <span
+                *ngIf="addressForm.get('pincode').invalid && (addressForm.get('pincode').dirty || addressForm.get('pincode').touched)"
+                class="error">
+                <span *ngIf="addressForm.get('pincode').errors.required">
+                    * Pincode is required.
+                </span>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="phone_number">Phone Number</label>
+            <input id="phone_number" type="number" formControlName="phone_number" class="form-control">
+            <span
+                *ngIf="addressForm.get('phone_number').invalid && (addressForm.get('phone_number').dirty || addressForm.get('phone_number').touched)"
+                class="error">
+                <span *ngIf="addressForm.get('phone_number').errors.required">
+                    * Phone Number is required.
+                </span>
+                <span *ngIf="addressForm.get('phone_number').errors.pattern">Please, Enter 10 digit Mobile
+                    Number.</span>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="type">Address type</label>
+            <select formControlName="type" id="type">
+                <option value="">Choose address type</option>
+                <option value="Home">Home</option>
+                <option value="Office">Office</option>
+                <option value="Other">Other</option>
+            </select>
+            <span
+                *ngIf="addressForm.get('type').invalid && (addressForm.get('type').dirty || addressForm.get('type').touched)"
+                class="error">
+                <span *ngIf="addressForm.get('type').errors.required">
+                    * Address type is required.
+                </span>
+            </span>
+        </div>
+        <div class="form-group">
+            <button type="submit" [disabled]="addressForm.invalid" class="btn">Add</button>&nbsp;
+            <button (click)="hideForm()" type="button" class="btn" *ngIf="currentUser">Cancel</button>
+        </div>
+    </form>
+</div>
+<div class="btns">
+    <button [disabled]="shippingAddress.length<1" class="btn" (click)="back()">Back</button>&nbsp;
+    <button [disabled]="shippingAddress.length<1" class="btn" (click)="next()">Next</button>
+</div>
+
+
+
+
+<!-- <form [formGroup]="addressForm" (ngSubmit)="onSubmit()" class="login-form">
+    <h1> Shipping address</h1>
+    <input id="country" type="hidden" formControlName="user" [value]="userId" class="form-control">
+    <div class="form-group">
+        <label for="country">Country</label>
+        <input type="text" formControlName="country" id="country" class="form-control">
+        <span
+            *ngIf="addressForm.get('country').invalid && (addressForm.get('country').dirty || addressForm.get('country').touched)"
+            class="error">
+            <span *ngIf="addressForm.get('country').errors.required">
+                * Country is required.
+            </span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="state">State</label>
+        <input type="text" formControlName="state" id="state" class="form-control">
+        <span
+            *ngIf="addressForm.get('state').invalid && (addressForm.get('state').dirty || addressForm.get('state').touched)"
+            class="error">
+            <span *ngIf="addressForm.get('state').errors.required">
+                * State is required.
+            </span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" formControlName="city" id="city" class="form-control">
+        <span
+            *ngIf="addressForm.get('city').invalid && (addressForm.get('city').dirty || addressForm.get('city').touched)"
+            class="error">
+            <span *ngIf="addressForm.get('city').errors.required">
+                * City is required.
+            </span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="street">Street</label>
+        <input type="text" formControlName="street" id="street" class="form-control">
+        <span
+            *ngIf="addressForm.get('street').invalid && (addressForm.get('street').dirty || addressForm.get('street').touched)"
+            class="error">
+            <span *ngIf="addressForm.get('street').errors.required">
+                * Street is required.
+            </span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="pincode">Pincode</label>
+        <input type="text" formControlName="pincode" id="pincode" class="form-control">
+        <span
+            *ngIf="addressForm.get('pincode').invalid && (addressForm.get('pincode').dirty || addressForm.get('pincode').touched)"
+            class="error">
+            <span *ngIf="addressForm.get('pincode').errors.required">
+                * Pincode is required.
+            </span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="phone_number">Phone Number</label>
+        <input type="number" formControlName="phone_number" id="phone_number" class="form-control">
+        <span
+            *ngIf="addressForm.get('phone_number').invalid && (addressForm.get('phone_number').dirty || addressForm.get('phone_number').touched)"
+            class="error">
+            <span *ngIf="addressForm.get('phone_number').errors.required"> * Phone Number is required. </span>
+            <span *ngIf="addressForm.get('phone_number').errors.pattern"> Enter 10 digit Mobile Number.</span>
+        </span>
+    </div>
+
+    <div class="form-group">
+            <label for="type">Address type</label>
+            <select formControlName="type" id="type">
+                <option value="">Choose address type</option>
+                <option value="Home">Home</option>
+                <option value="Office">Office</option>
+                <option value="Other">Other</option>
+            </select>
+            <span
+                *ngIf="addressForm.get('type').invalid && (addressForm.get('type').dirty || addressForm.get('type').touched)"
+                class="error">
+                <span *ngIf="addressForm.get('type').errors.required">
+                    * Address type is required.
+                </span>
+            </span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" [disabled]="addressForm.invalid" class="btn btn-primary">Proceed</button>
+    </div>
+
+</form> -->

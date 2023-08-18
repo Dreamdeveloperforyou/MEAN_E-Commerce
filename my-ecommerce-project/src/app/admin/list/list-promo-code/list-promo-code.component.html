@@ -1,0 +1,59 @@
+<p>list-promo-code works!</p>
+
+    <ng-container *ngIf="!showList;else elseBlock">
+    <div class="promoList">
+        <h2>Promocodes</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Promocode</th>
+                    <th>Discount(%)</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let promocode of promoCodes">
+                    <td>{{promocode.title}}</td>
+                    <td>{{promocode.promoCode}}</td>
+                    <td>{{promocode.discount}}</td>
+                    <td>
+                        {{promocode.status}}
+                        <mat-icon *ngIf="promocode.status == 'Active'"
+                            [ngClass]="{'editBtn' : promocode.status == 'Active' }">done</mat-icon>
+                        <mat-icon *ngIf="promocode.status == 'Expired'"
+                            [ngClass]="{'delBtn' : promocode.status == 'Expired' }"
+                            (click)="deletePromocode(promocode._id)">clear</mat-icon>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="assign-promo-button-container">
+        <button class="assign-promo-button" color="primary" (click)="assignPromocodes()">Assign Promocode</button>
+    </div>
+</ng-container>
+
+<ng-template #elseBlock>
+    <div class="assign-promo-list">
+        <form (ngSubmit)="submit()">
+            <div class="promocode-select">
+                <select class="select" name="promocode" [(ngModel)]="assignPromocodeForm.promocode">
+                    <option value="">Select promocode</option>
+                    <option *ngFor="let promo of promoCodes" value="{{promo._id}}">{{promo.title}}</option>
+                </select>
+            </div>
+            <div class="promocode-select">
+                <select class="select" name="user" [(ngModel)]="assignPromocodeForm.user">
+                    <option value="">Select user</option>
+                    <option *ngFor="let user of users" value="{{user._id}}">{{user.name}}</option>
+                </select>
+            </div>
+            <div class="btn-group">
+                <button type="submit" [disabled]="assignPromocodeForm.promocode=='' || assignPromocodeForm.user==''"
+                    class="submiBtn" color="primary">Submit</button>
+                <button type="button" class="cancelBtn" color="primary" (click)="cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</ng-template>

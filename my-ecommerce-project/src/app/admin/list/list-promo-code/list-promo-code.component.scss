@@ -1,0 +1,126 @@
+h2 {
+    text-align: center;
+    color: white;
+    background-color: rgb(148, 100, 237);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 22px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.promoList {
+    border: 1px solid black;
+    width: 80%;
+    margin: auto;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
+table {
+    width: 80%;
+    margin: auto;
+}
+
+.assign-promo-button-container {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.assign-promo-button {
+    height: 40px;
+    width: 180px;
+    border: 1px solid rgb(121, 100, 237);
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(162, 100, 237);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 17px;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+}
+
+.assign-promo-list {
+    width: 40%;
+    height: 40%;
+    margin: auto;
+    margin-top: 5%;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-top: 5%;
+}
+
+.select {
+    height: 40px;
+    width: 300px;
+    border-radius: 5px;
+    margin-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: rgb(99, 73, 202);
+    border: 1px solid black;   border-radius: 3.5px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+td {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.editBtn {
+    color: green;
+}
+
+.delBtn {
+    color: red;
+}
+
+.cancelBtn {
+    height: 40px;
+    width: 180px;
+    border: 1px solid cornflowerblue;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(107, 100, 237);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 17px;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+}
+
+.promocode-select {
+    margin-bottom: 60px;
+}
+
+.submiBtn {
+    margin-right: 20px;
+    height: 40px;
+    width: 180px;
+    border: 1px solid cornflowerblue;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(114, 100, 237);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 17px;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+}

@@ -1,0 +1,21 @@
+<div class="div">
+  <div class="container">
+    <ng-container *ngIf="products.length > 0; else elseBlock">
+      <div class="product_container" *ngFor="let product of products">
+        <div class="product_image">
+          <img src="http://localhost:8055/uploads/{{product.product_image}}" alt="product image" height="250px"
+            width="250px" (click)="onSelectedCategory(product)" />
+        </div>
+        <div class="product_name">
+          <p><mark>&nbsp; {{product.name}} &nbsp;</mark></p>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #elseBlock>
+      <div class="product_container">
+        <h1>Products not found!!!</h1>
+      </div>
+    </ng-template>
+  </div>
+  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
+</div>

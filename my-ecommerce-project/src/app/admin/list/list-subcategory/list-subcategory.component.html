@@ -1,0 +1,28 @@
+ <div class="form-group">
+    <select (change)="onChangeCategory($event,-1)" name="parent_id" class="select">
+        <option value="">Select Category</option>
+        <option *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</option>
+    </select>
+    <div *ngFor="let subCategory of subCategories; let i=index">
+        <ng-container *ngIf="subCategory.length>0">
+            <select (change)="onChangeCategory($event,i)" class="select" name="parent_id">
+                <option value="">Select subCategory</option>
+                <option *ngFor="let val of subCategory" value="{{val._id}}">{{val.name}}</option>
+            </select>
+        </ng-container>
+    </div>
+</div>
+
+<form (submit)="onSubmit()" class="form-container" *ngIf="showForm == true">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" [(ngModel)]="subcategoryForm.name" name="name" required>
+        <div *ngIf="subcategoryForm.name === '' || subcategoryForm.name === null || subcategoryForm.name === undefined"
+            class="invalid-feedback">Name is required.</div>
+    </div>
+
+    <div>
+        <button type="submit" [disabled]="!subcategoryForm.name">Update</button>
+        <button (click)="hideForm()">Cancel</button>
+    </div>
+</form>

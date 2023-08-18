@@ -1,0 +1,50 @@
+<form [formGroup]="promocodeForm" (ngSubmit)="onSubmit()" class="promocode-form">
+    <h1>Add Promocode</h1>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" formControlName="title" class="form-control">
+        <span
+            *ngIf="promocodeForm.get('title').invalid && (promocodeForm.get('title').dirty || promocodeForm.get('title').touched)" class="error">
+            <span *ngIf="promocodeForm.get('title').errors.required">
+                * Title is required.
+            </span>
+        </span>
+    </div>
+    
+    <div class="form-group">
+        <label for="image">PromoCode</label>
+        <input type="text" id="image" formControlName="promoCode" class="form-control">
+        <span
+            *ngIf="promocodeForm.get('promoCode').invalid && (promocodeForm.get('promoCode').dirty || promocodeForm.get('promoCode').touched)" class="error">
+            <span *ngIf="promocodeForm.get('promoCode').errors.required">
+                * PromoCode is required.
+            </span>
+        </span>
+    </div>
+    
+    <div class="form-group">
+        <label for="discount">Discount in %</label>
+        <input type="text" id="discount" formControlName="discount" class="form-control">
+        <span
+            *ngIf="promocodeForm.get('discount').invalid && (promocodeForm.get('discount').dirty || promocodeForm.get('discount').touched)" class="error">
+            <span *ngIf="promocodeForm.get('discount').errors.required">
+                * Discount is required.
+            </span>
+        </span>
+    </div>
+    
+    <div class="form-group">
+        <label for="expiry_date">Expiry date</label>
+        <input type="date" id="expiry_date" formControlName="expiry_date" class="form-control">
+        <span
+            *ngIf="promocodeForm.get('expiry_date').invalid && (promocodeForm.get('expiry_date').dirty || promocodeForm.get('expiry_date').touched)" class="error">
+            <span *ngIf="promocodeForm.get('expiry_date').errors.required">
+                * Date is required.
+            </span>
+        </span>
+    </div>
+    
+    <div class="form-group">
+        <button type="submit" [disabled]="promocodeForm.invalid" class="btn btn-primary">Add</button>
+    </div>
+</form>

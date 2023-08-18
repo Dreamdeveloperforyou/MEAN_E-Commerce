@@ -1,0 +1,55 @@
+<ng-container *ngIf="allVariant.length > 0;">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <table>
+                <br>
+                <thead>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span *ngFor="let val of allVariant[variantIndex].variant_image;let i=index" class="colourBtn">
+                          <button (mouseenter)="changeImage(i)">
+                              <img src="http://localhost:8055/uploads/{{val}}" alt="product image" height="50px" width="45px" />
+                          </button>
+                      </span>
+                    </td>
+                    <td>
+                     <div>
+                        <button (click)="openDialog(variantIndex)">
+                            <img src="http://localhost:8055/uploads/{{allVariant[variantIndex].variant_image[imageIndex]}}" alt="product image" height="235px" width="250px" />
+                        </button>
+                        <p> <b> Name     </b> &nbsp;&nbsp; <span> <i> {{allVariant[variantIndex].name}}     </i> </span> </p>
+                        <p> <b> Price    </b> &nbsp;&nbsp; <span> <i> {{allVariant[variantIndex].price}}    </i> </span> </p>
+                        <div *ngIf="allVariant[variantIndex].quantity>0; else thisOne">
+                            <p> <b> Quantity </b> &nbsp;&nbsp; <span> <i> {{allVariant[variantIndex].quantity}} </i> </span> </p>    
+                        </div>
+                        <ng-template #thisOne> <b class="stock">Out of Stock</b> </ng-template>
+                        <p> <b> Colors   </b> &nbsp;&nbsp; 
+                            <span *ngFor="let val of allVariant;let i=index">
+                              <img src="http://localhost:8055/uploads/{{val.colour_image}}" alt="product image" height="35px" width="30px" (click)="onSelectColour(i)" /> &nbsp;
+                            </span>
+                        </p>
+                     </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>
+                        <button class="btn" mat-fab (click)="addToCart(allVariant[variantIndex])">   <mat-icon> add_shopping_cart </mat-icon> </button> &nbsp;
+                        <button class="btn" mat-fab (click)="addWishList(allVariant[variantIndex])"> <mat-icon> list  </mat-icon> </button>
+                    </td>
+                    <td>
+                        &nbsp; <button class="bttn" (click)="buyNow(allVariant[variantIndex])" mat-icon-button><b>₹</b> </button> &nbsp; &nbsp;
+                    </td>
+                  </tr>
+                </tbody>
+                <br>
+            </table>
+        </mat-card-content>
+        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>   <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    </mat-card>
+</ng-container>

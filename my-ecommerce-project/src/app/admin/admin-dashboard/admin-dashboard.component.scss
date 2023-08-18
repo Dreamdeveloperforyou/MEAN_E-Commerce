@@ -1,0 +1,63 @@
+.tp-container {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background: #eee;
+}
+
+.cart {
+   color: rgb(8, 187, 124);
+}
+.product{
+   margin-top: 10px;
+}
+.tp-section {
+   display: flex;
+   align-content: center;
+   align-items: center;
+   height: 60px;
+   width: 100px;
+}
+.side{
+   background-color: rgb(231, 212, 250);
+}
+h1.spacer {
+   text-align: center;
+   margin: auto;
+   padding: 3px;
+   background: linear-gradient(-45deg,rgb(199, 109, 241), rgb(129, 40, 213),);
+   background-size: 600% 700%;
+   animation: gradient 15s ease infinite;
+   color: aqua;
+
+   @keyframes gradient {
+      0% {
+         background-position: 0% 50%;
+      }
+
+      50% {
+         background-position: 100% 50%;
+      }
+
+      100% {
+         background-position: 0% 50%;
+      }
+   }
+}
+i{
+   color: rgb(20, 20, 20);
+}
+u {
+   color: rgb(255, 255, 255);
+   font-size: larger;
+}
+b{
+   font-size: large;
+   color:rgb(201, 164, 218);
+}
+// a{
+//     background-color: rgb(202, 173, 215);
+//     color: black;
+// }

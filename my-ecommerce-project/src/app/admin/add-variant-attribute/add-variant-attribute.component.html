@@ -1,0 +1,27 @@
+<!-- <p>add-variant-attribute works!</p> -->
+<form [formGroup]="attributeForm" (ngSubmit)="onSubmit()" class="attribute-form">
+    <h1>Add Attribute</h1>
+
+    <div class="form-group">
+        <label for="product">Variant</label>
+        <select id="product" formControlName="variant_id">
+            <option value="">Choose Variant</option>
+            <option *ngFor="let variant of variants" value="{{variant._id}}">{{variant.name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="name">Size</label>
+        <input type="text" id="name" formControlName="size" />
+        <span class="error"
+            *ngIf="attributeForm.get('size').invalid && (attributeForm.get('size').dirty || attributeForm.get('size').touched)">
+            <span *ngIf="attributeForm.get('size').errors.required">
+                * Size is required.
+            </span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" [disabled]="attributeForm.invalid" class="btn btn-primary">Add</button>
+    </div>
+</form>

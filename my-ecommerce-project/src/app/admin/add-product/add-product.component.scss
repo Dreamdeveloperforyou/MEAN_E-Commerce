@@ -1,0 +1,111 @@
+/* Center the form */
+.product-form {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    margin: 0 auto;
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    background-color:  #9867cb81;
+
+}
+
+/* Style the form inputs and labels */
+.form-group {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+
+.form-control {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+span {
+    color: rgb(116, 22, 22);
+    font-size: 14px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+/* Style the "Choose file" button for file inputs */
+input[type="file"] {
+    background-color: #9034db;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Show a preview of the selected image */
+.product-form__image-preview {
+    margin-top: 1rem;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Style the form submit button */
+.product-form__submit {
+    background-color: #7434db;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.product-form__submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Style error messages */
+span[hidden] {
+    display: none;
+}
+
+span[aria-hidden="true"] {
+    visibility: hidden;
+}
+
+span[aria-hidden="false"] {
+    visibility: visible;
+    color: red;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #3a06f5;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

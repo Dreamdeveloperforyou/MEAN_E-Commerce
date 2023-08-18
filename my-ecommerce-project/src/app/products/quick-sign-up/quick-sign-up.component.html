@@ -1,0 +1,17 @@
+<p>quick-sign-up works!</p>
+<form [formGroup]="quickSignUpForm" (ngSubmit)="onSubmit()" class="login-form">
+    <h1>Quick Signup</h1>
+    <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="text" formControlName="phone_number" id="phone" class="form-control">
+        <span *ngIf="quickSignUpForm.get('phone_number').invalid && (quickSignUpForm.get('phone_number').dirty || quickSignUpForm.get('phone_number').touched)"
+            class="error">
+            <span *ngIf="quickSignUpForm.get('phone_number').errors.required">
+                * phone is required.
+            </span>
+        </span>
+    </div>
+    <div class="form-group">
+        <button type="submit" [disabled]="quickSignUpForm.invalid" class="btn btn-primary">Sign Up</button>
+    </div>
+</form>

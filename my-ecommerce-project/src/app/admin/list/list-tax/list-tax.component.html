@@ -1,0 +1,46 @@
+<ng-container *ngIf="!showList; else elseBlock">
+    <div class="promoList">
+        <h2>Taxes</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Tax(%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tax of taxes">
+                    <td>{{tax.title}}</td>
+                    <td>{{tax.tax}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="assign-promo-button-container">
+        <button class="assign-promo-button" color="primary" (click)="assignTax()">Assign Tax</button>
+    </div>
+</ng-container>
+
+<ng-template #elseBlock>
+    <div class="assign-promo-list">
+        <form (ngSubmit)="onSubmit()">
+            <div class="promocode-select">
+                <select class="select" name="tax" [(ngModel)]="assignTaxForm.tax">
+                    <option value="">Select Tax</option>
+                    <option *ngFor="let tax of taxes" value="{{tax._id}}">{{tax.title}}</option>
+                </select>
+            </div>
+            <div class="promocode-select">
+                <select class="select" name="product" [(ngModel)]="assignTaxForm.product">
+                    <option value="">Select Product</option>
+                    <option *ngFor="let product of products" value="{{product._id}}">{{product.name}}</option>
+                </select>
+            </div>
+            <div class="btn-group">
+                <button type="submit" [disabled]="assignTaxForm.tax == '' || assignTaxForm.product==''" class="submiBtn"
+                    color="primary">Submit</button>
+                <button type="button" class="cancelBtn" color="primary" (click)="cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</ng-template>

@@ -1,0 +1,109 @@
+<form [formGroup]="subCategoryForm" (ngSubmit)="onSubmit()" class="sub-category-form">
+  <h1>Add Sub-Category</h1>
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" formControlName="name" class="form-control">
+    <span
+      *ngIf="subCategoryForm.get('name').invalid && (subCategoryForm.get('name').dirty || subCategoryForm.get('name').touched)"
+      class="error">
+      <span *ngIf="subCategoryForm.get('name').errors.required">
+        * Name is required.
+      </span>
+    </span>
+  </div>
+
+  <div class="form-group">
+    <select (change)="onChange($event,-1)" formControlName="parent_id">
+      <option value="">select category</option>
+      <option *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</option>
+    </select>
+    <div *ngFor="let subCategory of subCategories; let i=index">
+      <ng-container *ngIf="subCategory.length>0">
+        <select (change)="onChange($event,i)" formControlName="parent_id">
+          <option *ngFor="let val of subCategory" value="{{val._id}}">{{val.name}}</option>
+        </select>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- <div class="form-group">
+    <label for="subCategory_image">subCategory Image</label>
+    <input type="file" (change)="onSelectedColourFile($event)" id="subCategory_image" formControlName="subCategory_image"> <br>
+    <span class="error"
+        *ngIf="subCategoryForm.get('subCategory_image').invalid && (subCategoryForm.get('subCategory_image').dirty || subCategoryForm.get('subCategory_image').touched)">
+        <span class="error" *ngIf="subCategoryForm.get('subCategory_image').errors.required">
+            * subCategory image is required.
+        </span>
+    </span>
+</div> -->
+
+  <div class="form-group">
+        <button type="submit" [disabled]="subCategoryForm.invalid" class="btn btn-primary">Add</button>
+    </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ----------------------------------------------------------- -->
+
+<!-- <form [formGroup]="subCategoryForm" (ngSubmit)="onSubmit()" class="sub-category-form">
+    <h1>Add Sub-Category</h1>
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" formControlName="name" class="form-control">
+        <span
+            *ngIf="subCategoryForm.get('name').invalid && (subCategoryForm.get('name').dirty || subCategoryForm.get('name').touched)"
+            class="error">
+            <span *ngIf="subCategoryForm.get('name').errors.required">
+                * Name is required.
+            </span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="category_id">Category</label>
+        <select id="category_id" formControlName="parent_id">
+            <option value="">Choose category</option>
+            <option *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" [disabled]="subCategoryForm.invalid" class="btn btn-primary">Add</button>
+    </div>
+</form> -->

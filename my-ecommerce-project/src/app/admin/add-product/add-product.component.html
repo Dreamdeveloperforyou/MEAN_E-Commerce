@@ -1,0 +1,65 @@
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form" enctype="multipart/form-data">
+    <h1>Add Products</h1>
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name">
+        <span
+            *ngIf="productForm.get('name').invalid && (productForm.get('name').dirty || productForm.get('name').touched)">
+            <span *ngIf="productForm.get('name').errors.required">
+                * Name is required.
+            </span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="name">Category</label>
+        <select (change)="getSubcategories($event)" formControlName="category_id">
+            <option value="">select category</option>
+            <option *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</option>
+        </select>
+    </div>
+
+    <ng-container *ngIf="subCategories.length>0">
+        <div class="form-group">
+        <label for="name">Subcategory</label>
+            <select (change)="onChange($event,-1)" formControlName="subCategory_id">
+                <option *ngFor="let subCategory of subCategories" value="{{subCategory._id}}">{{subCategory.name}}
+                </option>
+            </select>
+            <div class="form-group" *ngFor="let subCat of subCategories1; let i=index">
+                <ng-container *ngIf="subCat.length>0">
+                    <select (change)="onChange($event,i)" formControlName="subCategory_id">
+                        <option *ngFor="let val of subCat" value="{{val._id}}">{{val.name}}</option>
+                    </select>
+                </ng-container>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" id="description" formControlName="description">
+        <span
+            *ngIf="productForm.get('description').invalid && (productForm.get('description').dirty || productForm.get('description').touched)">
+            <span *ngIf="productForm.get('description').errors.required">
+                * Description is required.
+            </span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Product Image</label>
+        <input type="file" id="description" formControlName="product_image" (change)="onSelectedProductFile($event)">
+        <span
+            *ngIf="productForm.get('product_image').invalid && (productForm.get('product_image').dirty || productForm.get('product_image').touched)">
+            <span *ngIf="productForm.get('product_image').errors.required">
+                * Product Image is required.
+            </span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" [disabled]="productForm.invalid" class="product-form__submit">Add</button>
+    </div>
+</form>

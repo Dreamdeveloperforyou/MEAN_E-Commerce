@@ -1,0 +1,50 @@
+<div *ngIf="categories.length > 0;">
+    <select (change)="onChangeCategory($event)" class="select">
+        <option value="">Choose category</option>
+        <option *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</option>
+    </select>
+</div>
+
+<div *ngIf="products.length > 0;">
+    <select (change)="onChangeProduct($event)" class="select">
+        <option value="">Choose product</option>
+        <option *ngFor="let product of products" value="{{product._id}}">{{product.name}}</option>
+    </select>
+</div>
+
+<div *ngIf="variants.length > 0;">
+    <select (change)="onChangeVariant($event)" class="select">
+        <option value="">Choose variant</option>
+        <option *ngFor="let variant of variants" value="{{variant._id}}">{{variant.name}}</option>
+    </select>
+</div>
+
+<div *ngIf="attributes.length > 0;">
+    <select (change)="onChangeAttribute($event)" class="select">
+        <option value="">Choose variant</option>
+        <option *ngFor="let attribute of attributes" value="{{attribute._id}}">{{attribute.size}}</option>
+    </select>
+</div>
+
+<form (submit)="onSubmit()" class="form-container" *ngIf="showForm == true">
+    <div class="form-group">
+        <label for="variant_id">Variant:</label>
+        <input type="text" id="variant_id" [(ngModel)]="attributeForm.variant_id" name="variant_id" required>
+        <div *ngIf="attributeForm.variant_id === '' || attributeForm.variant_id === null || attributeForm.variant_id === undefined"
+            class="invalid-feedback">Variant is required.</div>
+    </div>
+
+    <div class="form-group">
+        <label for="size">size:</label>
+        <input type="text" id="size" [(ngModel)]="attributeForm.size" name="size" required>
+        <div *ngIf="attributeForm.size === '' || attributeForm.size === null || attributeForm.size === undefined"
+            class="invalid-feedback">Size is required.</div>
+    </div>
+
+    <div>
+        <button type="submit" [disabled]="!attributeForm.size">Update</button>
+        <button (click)="hideForm()">Cancel</button>
+    </div>
+</form>
+
+  

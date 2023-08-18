@@ -1,0 +1,131 @@
+// -----------------------------
+// Amazon Shared Footer
+// -----------------------------
+
+// Variables
+// @bp-850: ~"only screen and (max-width: 850px)";
+// @amazon-grey: #ddd;
+// @amazon-grey--dark: #231F20;
+// @amazon-border: #333;
+//
+
+// Amazon Footer
+// -----------------------------
+
+.amazon-footer {
+  background-color: rgb(77, 43, 97);
+}
+.amazon-footer-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.amazon-footer-logo-image {
+  max-width: 160px;
+}
+
+// Footer Columns
+.amazon-row {
+  display: flex;
+  justify-content: space-between;
+}
+.amazon-col {
+  &--20 {
+    flex-basis: 20%;
+    max-width: 20%;
+  }
+  &--30 {
+    flex-basis: 30%;
+    max-width: 30%;
+  }
+//   @media @tablet {
+//     flex-basis: 100%;
+//     max-width: 100%;
+//   }
+}
+
+// Footer Lists
+.amazon-footer-lists {
+  padding: 40px 0;
+}
+.amazon-footer-list-item {
+  margin-bottom: 8px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Typography
+.amazon-footer-title {
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 20px;
+  color: white;
+}
+.amazon-footer-text {
+  font-size: 13px;
+  line-height: 20px;
+  color: grey;
+}
+.amazon-footer-link {
+  font-size: 13px;
+  line-height: 20px;
+  color: grey;
+  &:hover {
+    color: white;
+  }
+}
+
+// Sub Footer
+.amazon-sub-footer {
+  padding: 12px 0;
+  border-top: 1px solid border;
+  line-height: 0;
+  
+  .amazon-col:last-child {
+    text-align: right;
+  }
+  .amazon-footer-list-item {
+    display: inline-block;
+    margin-left: 20px;
+    margin-bottom: 0;
+  }
+  .amazon-footer-link:hover {
+    color: white;
+  }
+  .amazon-footer-link,
+  .amazon-footer-text {
+    font-size: 12px;
+    color: #999;
+  }
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+ }
+
+
+
+// IGNORE
+body {
+  font-family: Arial,sans-serif;
+  font-size: 13px;
+  line-height: 20px;
+}
+ul, li, h4, p {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+.amazon-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+// @tablet: ~"only screen and (max-width: 769px)";
+// @mobile: ~"only screen and (max-width: 480px)";

@@ -1,0 +1,129 @@
+<mat-toolbar>
+    <span>
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </span>
+    <h1 class="spacer">&nbsp;&nbsp;<u><strong><i>Welcome To Admin Dashboard</i></strong></u>&nbsp;&nbsp;&nbsp;</h1>
+    <!-- <button (click)="b()" class="cart" mat-icon-button><mat-icon>shopping_cart</mat-icon> </button> -->
+</mat-toolbar>
+
+<mat-sidenav-container class="side">
+    <mat-sidenav #sidenav mode="side">
+        <mat-nav-list>
+            <mat-expansion-panel class="mat-elevation-z0">
+                <mat-expansion-panel-header>
+                    <b> Category</b>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="add-category">Add Category</a>
+                    <a mat-list-item routerLink="listCategory">Update Category</a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="mat-elevation-z0">
+                <mat-expansion-panel-header>
+                    <b> Sub-Category </b>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="add-sub">Add Sub-Category</a>
+                    <a mat-list-item routerLink="listSubCategory">Update Sub-Category</a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="mat-elevation-z0">
+                <mat-expansion-panel-header>
+                    <b> Product </b>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="add-product">Add Products</a>
+                    <a mat-list-item routerLink="listProduct">Update Product</a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="mat-elevation-z0">
+                <mat-expansion-panel-header>
+                    <b> Variant </b>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="add-variant">Add Variant</a>
+                    <a mat-list-item routerLink="listVariant">Update Variant</a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="mat-elevation-z0">
+                <mat-expansion-panel-header>
+                    <b> Attribute </b>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="variant-att">Add Attribute</a>
+                    <a mat-list-item routerLink="listAttribute">Update Attribute</a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="mat-elevation-z0">
+                <mat-expansion-panel-header>
+                    <b> Promocode</b>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="promocode">Add Promocode</a>
+                    <a mat-list-item routerLink="givePromocode">Give Promocode</a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="mat-elevation-z0">
+                <mat-expansion-panel-header>
+                   <b> Tax </b>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="tax">Add Tax</a>
+                    <a mat-list-item routerLink="applyTax">Apply Tax</a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div style="height: 88vh;" class="product">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+
+
+
+
+
+
+
+
+
+<!--
+<mat-toolbar>
+<span>
+ <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+</span>
+ <h1 class="spacer">&nbsp;&nbsp;<u><b><i>Welcome To Admin Dashboard</i></b></u>&nbsp;&nbsp;&nbsp;</h1> 
+ <button (click)="b()" class="cart" mat-icon-button ><mat-icon>shopping_cart</mat-icon> </button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+<mat-sidenav #sidenav mode="side">
+<mat-nav-list>
+<a mat-list-item routerLink="add-category">    <b> &nbsp; <u> Add Category          </u>  &nbsp; </b> </a> 
+<a mat-list-item routerLink="add-sub">         <b> &nbsp; <u> Add Sub-Category      </u>  &nbsp; </b> </a> 
+<a mat-list-item routerLink="add-product">     <b> &nbsp; <u> Add Product's         </u>  &nbsp; </b> </a>   
+<a mat-list-item routerLink="add-variant">     <b> &nbsp; <u> Add Variant           </u>  &nbsp; </b> </a>     
+<a mat-list-item routerLink="variant-att">     <b> &nbsp; <u> Variant Attribute     </u>  &nbsp; </b> </a>      
+<a mat-list-item routerLink="listCategory">    <b> &nbsp; <u> update Category       </u>  &nbsp; </b> </a>  
+<a mat-list-item routerLink="listSubCategory"> <b> &nbsp; <u> update Sub-Category   </u>  &nbsp; </b> </a>       
+<a mat-list-item routerLink="listProduct">     <b> &nbsp; <u> update Product's      </u>  &nbsp; </b> </a>       
+<a mat-list-item routerLink="listVariant">     <b> &nbsp; <u> update Variant        </u>  &nbsp; </b> </a>      
+<a mat-list-item routerLink="listAttribute">   <b> &nbsp; <u> Variant Attribute     </u>  &nbsp; </b> </a>      
+</mat-nav-list>&nbsp;
+</mat-sidenav>  
+<mat-sidenav-content>   
+ <div style="height: 88vh;">      <router-outlet></router-outlet>        </div>  
+</mat-sidenav-content></mat-sidenav-container> 
+-->

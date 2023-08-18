@@ -1,0 +1,17 @@
+<h2>profile works!</h2>
+
+    <mat-card class="form-container" *ngIf="user">
+    <mat-card-header>
+        <h1>Profile</h1>
+    </mat-card-header>
+    <mat-card-content>
+        <p><b>Name</b>&nbsp;&nbsp;{{user.name}}</p>
+        <p><b>Address</b>&nbsp;&nbsp;{{user.address}}</p>
+        <p><b>Phone_number</b>&nbsp;&nbsp;{{user.phone_number}}</p>
+        <p><b>Email</b>&nbsp;&nbsp;{{user.email}}</p>
+        <p><b>Password</b>&nbsp;&nbsp;<a href="/user/profile">Change Password</a></p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button type="button" mat-raised-button (click)="editProfile()" color="primary">Edit</button>
+    </mat-card-actions>
+</mat-card>

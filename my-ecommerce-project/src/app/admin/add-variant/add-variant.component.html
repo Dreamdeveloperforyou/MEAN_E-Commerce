@@ -1,0 +1,85 @@
+<form [formGroup]="variantForm" (ngSubmit)="onSubmit()" class="variant-form" enctype="multipart/form-data">
+    <h1>Add Variant</h1>
+
+    <div class="form-group">
+        <label for="product">Product</label>
+        <select id="product" formControlName="product_id">
+            <option value="">Choose Product</option>
+            <option *ngFor="let product of products" value="{{product._id}}">{{product.name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name">
+        <span class="error"
+            *ngIf="variantForm.get('name').invalid && (variantForm.get('name').dirty || variantForm.get('name').touched)">
+            <span class="error" *ngIf="variantForm.get('name').errors.required">
+                * Name is required.
+            </span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="price">Price</label>
+        <input type="text" formControlName="price" class="form-control">
+        <span class="error"
+            *ngIf="variantForm.get('price').invalid && (variantForm.get('price').dirty || variantForm.get('price').touched)"
+            class="error">
+            <span class="error" *ngIf="variantForm.get('price').errors.required">
+                * Price is required.
+            </span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="text" formControlName="quantity" class="form-control">
+        <span class="error"
+            *ngIf="variantForm.get('quantity').invalid && (variantForm.get('quantity').dirty || variantForm.get('quantity').touched)"
+            class="error">
+            <span class="error" *ngIf="variantForm.get('quantity').errors.required">
+                * Quantity is required.
+            </span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="colour">Colour Name</label>
+        <input type="text" formControlName="colour" class="form-control">
+        <span class="error"
+            *ngIf="variantForm.get('colour').invalid && (variantForm.get('colour').dirty || variantForm.get('colour').touched)"
+            class="error">
+            <span class="error" *ngIf="variantForm.get('colour').errors.required">
+                * Colour is required.
+            </span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="color_image">Color Image</label>
+        <input type="file" (change)="onSelectedColourFile($event)" id="color_image" formControlName="color_image">
+        <span class="error"
+            *ngIf="variantForm.get('color_image').invalid && (variantForm.get('color_image').dirty || variantForm.get('color_image').touched)">
+            <span class="error" *ngIf="variantForm.get('color_image').errors.required">
+                * Colour image is required.
+            </span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="product_image">Product Image</label>
+        <input type="file" multiple (change)="onSelectedProductFile($event)" id="product_image"
+            formControlName="product_image">
+        <span class="error"
+            *ngIf="variantForm.get('product_image').invalid && (variantForm.get('product_image').dirty || variantForm.get('product_image').touched)">
+            <span class="error" *ngIf="variantForm.get('product_image').errors.required">
+                * Product image is required.
+            </span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" [disabled]="variantForm.invalid" class="btn btn-primary">Add</button>
+    </div>
+</form>

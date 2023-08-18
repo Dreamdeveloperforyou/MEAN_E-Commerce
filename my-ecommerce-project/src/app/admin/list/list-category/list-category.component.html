@@ -1,0 +1,33 @@
+<div *ngIf="categories.length > 0;">
+  <select (change)="onChangeCategory($event)" class="select">
+    <option value="">Choose category</option>
+    <option *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</option>
+  </select>
+</div>
+
+<form (submit)="onSubmit()" class="form-container" *ngIf="showForm == true">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="categoryForm.name" name="name" required>
+    <div *ngIf="categoryForm.name === '' || categoryForm.name === null || categoryForm.name === undefined"
+      class="invalid-feedback">Name is required.</div>
+  </div>
+
+  <div class="form-group">
+    <label for="category_image">Category Image:</label>
+    <input type="file" id="category_image" name="category_image" (change)="onFileChange($event)" required>
+  </div>
+
+  <div *ngIf="categoryImage == undefined;else thisOne">
+    <img src="http://localhost:8055/uploads/{{categoryForm.category_image}}"
+      style="height: 300px; width:500px" />
+  </div>
+  <ng-template #thisOne>
+    <p>Image Selected</p>
+  </ng-template>
+
+  <div>
+    <button type="submit" [disabled]="!categoryForm.name">Update</button>
+    <button (click)="hideForm()">Cancel</button>
+  </div>
+</form>

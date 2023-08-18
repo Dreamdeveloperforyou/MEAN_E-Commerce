@@ -1,0 +1,28 @@
+<h2>my-wishlist works!</h2>
+
+    <ng-container *ngIf="wishList.length>0; else thisOne">
+    <div *ngFor="let val of wishList;let i=index" style="display: inline-block; width: 23%; margin: 1%;">
+        <h1><u>Your Wishlist</u></h1>
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title></mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div style="text-align: center;">
+                    <div>
+                        <img src="http://localhost:8088/uploads/product_variant_images/{{val.variant_image[0]}}"
+                            alt="product image" height="250px" width="250px" />
+                    </div>
+                    <p>{{val.name}}</p>
+                    <p>{{val.price | currency : 'INR' }}</p>
+                    <button>Add to cart</button>&nbsp;
+                    <button>Buy now</button>&nbsp;
+                    <button (click)="removeWishlist(val)">Remove</button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</ng-container>
+<ng-template #thisOne>
+    <h1>Your Wishlist empty</h1>
+</ng-template>

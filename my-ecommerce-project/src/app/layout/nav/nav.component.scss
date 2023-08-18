@@ -1,0 +1,27 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.mat-toolbar{
+    background-color: rgb(113, 25, 163);           
+    color: rgb(241, 241, 241);
+  }
+  .mat-button{
+    color: rgb(255, 255, 255);
+  }
+  .spacer{
+    flex: 11 auto;
+  }
+  .nav-bar{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+.cart {
+  color: rgb(8, 187, 124);
+}
+.profile{
+  text-align: center;
+  color: black;
+}
+.container{
+  position: relative;
+}

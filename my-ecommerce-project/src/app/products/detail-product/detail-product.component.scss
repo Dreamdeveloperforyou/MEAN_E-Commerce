@@ -1,0 +1,79 @@
+i {
+  color: rgb(244, 250, 254);
+}
+
+.colourBtn {
+  margin-left: 10px;
+  display: flex;
+}
+
+.bttn {
+  // background-color: rgb(86, 173, 132);
+  color: rgb(58, 201, 84);
+}
+
+.btn {
+  // background-color: rgb(86, 173, 132);
+  color: rgb(16, 16, 16);
+}
+
+.p {
+  text-align: right;
+}
+
+table {
+  background-color: rgb(97, 11, 147);
+  // background-color:  rgb(74, 47, 112);
+}
+
+.product {
+  display: inline-block;
+  text-align: center;
+  width: 15%;
+  height: 5px;
+  margin: 1%;
+}
+
+.example-card {
+  color: #ada0a0;
+  // background-color: rgb(120, 106, 216);
+  background-image: linear-gradient(to bottom right, rgb(228, 176, 251), rgb(98, 106, 192), );
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  background-size: 600% 700%;
+  font-variant: small-caps;
+  font-weight: 200;
+  animation: gradient 5s ease infinite;
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+button {
+  color: #000;
+  background-color: rgb(120, 106, 216);
+}
+
+.button1 {
+  background-color: rgb(63, 199, 135);
+  // background-color:rgb(156, 101, 170);
+}
+
+img {
+  max-width: 98%;
+  max-height: 99%;
+}
+
+.stock {
+  color: rgb(178, 24, 24);
+}
